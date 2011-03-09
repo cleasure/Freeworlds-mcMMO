@@ -4,12 +4,37 @@ public class mcLoadProperties {
 	public static Boolean pvp, eggs, apples, myspawnclearsinventory, cake, music, diamond, glowstone, slowsand, sulphur, netherrack, bones, coal, clay, anvilmessages;
 	public static String mcmmo, mcc, mcgod, stats, mmoedit, ptp, party, myspawn, setmyspawn, whois, invite, accept, clearmyspawn;
 	public static int globalxpmodifier, miningxpmodifier, repairxpmodifier, woodcuttingxpmodifier, unarmedxpmodifier, herbalismxpmodifier, excavationxpmodifier, archeryxpmodifier, swordsxpmodifier, axesxpmodifier, acrobaticsxpmodifier;
+    public static int maxMiningLvl, maxMiningChance, maxRepairLvl, maxRepairChance, maxWoodcuttingLvl, maxWoodcuttingChance, maxUnarmedLvl, maxUnarmedChance, maxHerbalismLvl, maxHerbalismChance, maxExcavationLvl, maxExcavationChance, maxArcheryLvl, maxArcheryChance, maxSwordsLvl, maxSwordsChance, maxAxesLvl, maxAxesChance, maxAcrobaticsLvl, maxAcrobaticsChance;
 	
 	public static void loadMain(){
     	String propertiesFile = mcMMO.maindirectory + "mcmmo.properties";
     	mcProperties properties = new mcProperties(propertiesFile);
     	properties.load();
     	
+        /*
+		 * Max Levels and Chance
+		 */
+		maxMiningLvl = properties.getInterger("maxMiningLvl",1000);
+		maxMiningChance = properties.getInterger("maxMiningChance",100);
+		maxRepairLvl = properties.getInterger("maxRepairLvl",1000);
+		maxRepairChance = properties.getInterger("maxRepairChance",100);
+		maxWoodcuttingLvl = properties.getInterger("maxWoodcuttingLvl",1000);
+		maxWoodcuttingChance = properties.getInterger("maxWoodcuttingChance",100);
+		maxUnarmedLvl = properties.getInterger("maxUnarmedLvl",1000);
+		maxUnarmedChance = properties.getInterger("maxUnarmedChance",100);
+		maxHerbalismLvl = properties.getInterger("maxHerbalismLvl",1000);
+		maxHerbalismChance = properties.getInterger("maxHerbalismChance");
+		maxExcavationLvl = properties.getInterger("maxExcavationLvl",1000);
+		maxExcavationChance = properties.getInterger("maxExcavationChance",100);
+		maxArcheryLvl = properties.getInterger("maxArcheryLvl",1000);
+		maxArcheryChance = properties.getInterger("maxArcheryChance",100);
+		maxSwordsLvl = properties.getInterger("maxSwordsLvl",1000);
+		maxSwordsChance = properties.getInterger("maxSwordsChance",100);
+		maxAxesLvl = properties.getInterger("maxAxesLvl",1000);
+		maxAxesChance = properties.getInterger("maxAxesChance",100);
+		maxAcrobaticsLvl = properties.getInterger("maxAcrobaticsLvl",1000);
+		maxAcrobaticsChance = properties.getInterger("maxAcrobaticsChance",100);	
+
     	/*
     	 * EXPERIENCE RATE MODIFIER
     	 */
