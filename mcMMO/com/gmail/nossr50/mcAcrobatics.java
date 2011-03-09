@@ -15,13 +15,18 @@ public class mcAcrobatics {
     	}
 	public void acrobaticsCheck(Player player, EntityDamageEvent event, Location loc, int xx, int y, int z){   
          if(player != null && mcPermissions.getInstance().acrobatics(player)){   
-               if(Math.random() * 100 <= mcUsers.getProfile(player).getAcrobaticsInt() / 950){   
+               int chance = mcUsers.getProfile(player).getAcrobaticsInt() / mcLoadProperties.maxAcrobaticsLvl
+               if(chance > mcLoadProperties.maxAcrobaticsChance){
+                    chance = mcLoadProperties.maxAcrobaticsChance
+               }
+               if(Math.random() * 100 <= chance){   
                     event.setCancelled(true);   
                     player.sendMessage("**ROLLED**");   
                     return;   
                }   
           }
-		if(player != null && player.getHealth() - event.getDamage() <= 0)
+		if(player != null && mcUsers.getProfile(player).getAcrobaticsInt() >= mcLoadProperties.maxAcrobaticsLvl
+                                && player.getHealth() - event.getDamage() <= 0)
 			return;
 		if(!mcConfig.getInstance().isBlockWatched(loc.getWorld().getBlockAt(xx, y, z)) 
 				&& mcPermissions.getInstance().acrobatics(player)){
