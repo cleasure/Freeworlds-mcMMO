@@ -15,9 +15,9 @@ public class mcAcrobatics {
     	}
 	public void acrobaticsCheck(Player player, EntityDamageEvent event, Location loc, int xx, int y, int z){   
          if(player != null && mcPermissions.getInstance().acrobatics(player)){   
-               int chance = mcUsers.getProfile(player).getAcrobaticsInt() / mcLoadProperties.maxAcrobaticsLvl
+               int chance = mcUsers.getProfile(player).getAcrobaticsInt() / mcLoadProperties.maxAcrobaticsLvl;
                if(chance > mcLoadProperties.maxAcrobaticsChance){
-                    chance = mcLoadProperties.maxAcrobaticsChance
+                    chance = mcLoadProperties.maxAcrobaticsChance;
                }
                if(Math.random() * 100 <= chance){   
                     event.setCancelled(true);   
